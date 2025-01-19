@@ -10,7 +10,6 @@ const AddTransaction = () => {
       alert(result.error);
     } else {
       alert("Transaction added successfully");
-      console.log(result.data);
     }
   };
 
