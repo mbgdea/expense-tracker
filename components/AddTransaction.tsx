@@ -1,8 +1,11 @@
 "use client";
 
 import addTransaction from "@/app/actions/addTransaction";
+import { useRef } from "react";
 
 const AddTransaction = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+
   const clientAction = async (formData: FormData) => {
     const result = await addTransaction(formData);
 
@@ -10,6 +13,7 @@ const AddTransaction = () => {
       alert(result.error);
     } else {
       alert("Transaction added successfully");
+      formRef.current?.reset();
     }
   };
 
@@ -17,7 +21,7 @@ const AddTransaction = () => {
     <>
       <h3>Add Transaction</h3>
 
-      <form action={clientAction}>
+      <form ref={formRef} action={clientAction}>
         <div>
           <label htmlFor="text">Text</label>
           <input
