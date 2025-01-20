@@ -1,6 +1,7 @@
 import Guest from "@/components/Guest";
 import { checkUser } from "@/lib/checkUser";
 import Header from "@/components/Header";
+import Balance from "@/components/Balance";
 import AddTransaction from "@/components/AddTransaction";
 
 const Home = async () => {
@@ -13,6 +14,7 @@ const Home = async () => {
   return (
     <>
       <Header />
+      <Balance />
       <AddTransaction />
     </>
   );
