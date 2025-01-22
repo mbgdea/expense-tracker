@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Balance from "@/components/Balance";
 import IncomeExpense from "@/components/IncomeExpense";
 import AddTransaction from "@/components/AddTransaction";
+import TransactionList from "@/components/TransactionList";
 
 const Home = async () => {
   const user = await checkUser();
@@ -18,6 +19,7 @@ const Home = async () => {
       <Balance />
       <IncomeExpense />
       <AddTransaction />
+      <TransactionList />
     </>
   );
 };
