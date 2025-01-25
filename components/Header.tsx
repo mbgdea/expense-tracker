@@ -11,9 +11,20 @@ const Header = async () => {
       </SignedOut>
 
       <SignedIn>
-        {user ? <p>Welcome, {user.firstName}</p> : ""}
+        <div className="flex items-center justify-between">
+          {user ? (
+            <p className="text-2xl">
+              Welcome, <br />{" "}
+              <span className="text-2xl font-semibold">{user.firstName}</span>
+            </p>
+          ) : (
+            ""
+          )}
 
-        <UserButton />
+          <div className="mb-2">
+            <UserButton />
+          </div>
+        </div>
       </SignedIn>
     </header>
   );
