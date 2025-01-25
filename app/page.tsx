@@ -14,13 +14,13 @@ const Home = async () => {
   }
 
   return (
-    <>
+    <div className="container mt-4 max-w-80 p-2">
       <Header />
       <Balance />
       <IncomeExpense />
       <AddTransaction />
       <TransactionList />
-    </>
+    </div>
   );
 };
 
