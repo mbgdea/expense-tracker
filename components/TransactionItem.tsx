@@ -6,8 +6,6 @@ import deleteTransaction from "@/app/actions/deleteTransaction";
 import { Card } from "./ui/card";
 
 const TransactionItem = ({ transaction }: { transaction: Transaction }) => {
-  const sign = transaction.amount < 0 ? "-" : "+";
-
   const handleDeleteTransaction = async (transactionId: string) => {
     const confirmed = window.confirm("Are you sure you want to delete this?");
 
@@ -30,8 +28,7 @@ const TransactionItem = ({ transaction }: { transaction: Transaction }) => {
         <Card className="relative mb-2 flex justify-between overflow-hidden px-2 py-1">
           <span>{transaction.text}</span>
           <span className="mr-1">
-            ${sign}
-            {addCommas(Math.abs(transaction.amount))}
+            ${addCommas(Math.abs(transaction.amount))}
           </span>
           <button
             onClick={() => handleDeleteTransaction(transaction.id)}
