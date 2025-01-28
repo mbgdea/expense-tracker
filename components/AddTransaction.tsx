@@ -4,6 +4,7 @@ import addTransaction from "@/app/actions/addTransaction";
 import { useRef } from "react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
+import { toast } from "sonner";
 
 const AddTransaction = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -12,9 +13,9 @@ const AddTransaction = () => {
     const result = await addTransaction(formData);
 
     if (result.error) {
-      alert(result.error);
+      toast.error(result.error);
     } else {
-      alert("Transaction added successfully");
+      toast.success("Transaction added successfully");
       formRef.current?.reset();
     }
   };

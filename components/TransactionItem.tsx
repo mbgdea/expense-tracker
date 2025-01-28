@@ -4,6 +4,7 @@ import { Transaction } from "@/types/Transaction";
 import { addCommas } from "@/lib/utils";
 import deleteTransaction from "@/app/actions/deleteTransaction";
 import { Card } from "./ui/card";
+import { toast } from "sonner";
 
 const TransactionItem = ({ transaction }: { transaction: Transaction }) => {
   const handleDeleteTransaction = async (transactionId: string) => {
@@ -16,9 +17,9 @@ const TransactionItem = ({ transaction }: { transaction: Transaction }) => {
     const { message, error } = await deleteTransaction(transactionId);
 
     if (error) {
-      console.log(error);
+      toast.error(error);
     } else {
-      console.log(message);
+      toast.success(message);
     }
   };
 
